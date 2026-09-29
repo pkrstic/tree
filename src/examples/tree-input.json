@@ -1,0 +1,36 @@
+[
+  {
+    "entry_id": 1,
+    "parent_entry_id": null,
+    "name": "Engineering",
+    "children": [
+      {
+        "entry_id": 2,
+        "parent_entry_id": 1,
+        "name": "Frontend",
+        "children": [],
+        "hasChildren": false,
+        "collapsed": false
+      },
+      {
+        "entry_id": 3,
+        "parent_entry_id": 1,
+        "name": "Backend",
+        "children": [],
+        "hasChildren": false,
+        "collapsed": false,
+        "disabled": true
+      }
+    ],
+    "hasChildren": true,
+    "collapsed": false
+  },
+  {
+    "entry_id": 4,
+    "parent_entry_id": null,
+    "name": "Design",
+    "children": [],
+    "hasChildren": false,
+    "collapsed": false
+  }
+]

@@ -1,0 +1,77 @@
+main { max-width: 1180px; padding: 0 32px; margin: 0 auto; }
+.page-header { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; border-bottom: 1px solid #dce3e9; font-size: 13px; }
+.page-header a { text-decoration: none; }
+.brand { font-size: 21px; font-weight: 750; letter-spacing: -1px; }
+.brand span { font-size: 12px; font-weight: 400; letter-spacing: 0; color: #68778b; margin-left: 10px; }
+.intro { padding: 70px 0 58px; max-width: 700px; }
+.eyebrow { font-size: 11px; color: #137e70; font-weight: 700; letter-spacing: 2px; }
+h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -2px; font-weight: 650; margin: 20px 0; }
+.intro p { max-width: 560px; line-height: 1.7; color: #68778b; font-size: 17px; }
+.intro-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.intro-tags span { font-size: 11px; padding: 6px 10px; border: 1px solid #d4dce5; border-radius: 30px; }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+.section-heading h2 { font-size: 20px; margin: 0; }
+.section-heading p { font-size: 13px; color: #68778b; }
+.examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+.example { background: white; border: 1px solid #dce3e9; border-radius: 12px; overflow: hidden; }
+.example-heading { display: flex; align-items: center; gap: 12px; padding: 22px 22px 0; }
+.example-number { font: 12px ui-monospace, monospace; color: #137e70; }
+.example h2 { font-size: 16px; font-weight: 650; margin: 0; }
+.example > p { font-size: 13px; line-height: 1.65; color: #68778b; margin: 10px 22px 18px; min-height: 44px; }
+.example-preview { padding: 0 22px 22px; }
+.example-result { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 12px; font: 11px ui-monospace, monospace; }
+.example-result output { overflow-wrap: anywhere; }
+.example-result button { font: 12px system-ui, sans-serif; cursor: pointer; background: #edf7f4; color: #137e70; border: 1px solid #c8e3dc; padding: 7px 10px; border-radius: 5px; }
+details { border-top: 1px solid #e6ebef; }
+summary { cursor: pointer; font-size: 12px; padding: 14px 22px; color: #526378; }
+pre { margin: 0; padding: 18px 22px; background: #f3f6f8; overflow: auto; font: 12px/1.7 ui-monospace, monospace; }
+.custom-tree .tree { --tree-background: #172b2b; --tree-foreground: #e3f3ed; --tree-border: #3d5855; --tree-accent: #79dcc5; --tree-muted: #a6bdb8; }
+footer { padding: 35px 0; margin-top: 30px; color: #68778b; font-size: 12px; border-top: 1px solid #dce3e9; }
+@media (max-width: 760px) { main { padding: 0 18px; } .examples { grid-template-columns: 1fr; } .section-heading { display: block; } .intro { padding: 48px 0 36px; } .brand span { display: none; } }
+.page-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px; }
+.parameters { margin-bottom: 44px; }
+.parameter-table-scroll { overflow-x: auto; border: 1px solid #dce3e9; border-radius: 12px; background: #fff; }
+.parameter-table-scroll:focus-visible { outline: 2px solid #137e70; outline-offset: 4px; }
+.parameter-table { width: 100%; min-width: 760px; border-collapse: collapse; text-align: left; font-size: 12px; line-height: 1.6; }
+.parameter-table th, .parameter-table td { padding: 14px 18px; vertical-align: top; border-bottom: 1px solid #e6ebef; }
+.parameter-table thead { background: #edf3f5; color: #526378; }
+.parameter-table tbody th { font-weight: 500; color: #137e70; }
+.parameter-table tbody tr:last-child > * { border-bottom: 0; }
+.parameter-table td:nth-child(2) { width: 24%; }
+.parameter-table td:last-child { width: 44%; color: #526378; }
+.parameter-table code { font: 12px/1.6 ui-monospace, monospace; overflow-wrap: anywhere; }
+.parameter-note { margin: 14px 0 0; color: #68778b; font-size: 12px; line-height: 1.7; }
+.parameter-note code { color: #26364a; font-size: 11px; }
+.json-input { margin-bottom: 44px; }
+.json-input-description { font-size: 13px; line-height: 1.7; color: #68778b; margin: 0 0 24px; }
+.json-input-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.json-input h3 { font-size: 14px; margin: 0 0 14px; font-weight: 650; }
+.node-definition-table { min-width: 540px; }
+.node-definition-table th, .node-definition-table td { padding: 12px; }
+.node-definition-table tbody th code { white-space: nowrap; }
+.node-definition-table td:nth-child(2), .node-definition-table td:last-child { width: auto; }
+.json-code-panel { min-width: 0; border: 1px solid #dce3e9; border-radius: 12px; overflow: hidden; background: white; }
+.json-code-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 16px 18px; }
+.json-code-heading h3 { margin: 0; }
+.json-code-heading a { font-size: 12px; color: #137e70; text-decoration: none; }
+.json-input-preview { margin-top: 24px; }
+.json-usage { border-top: 1px solid #dce3e9; }
+.json-usage h3 { padding: 16px 18px; margin: 0; }
+@media (max-width: 960px) { .json-input-grid { grid-template-columns: 1fr; } }
+.css-variables { margin-bottom: 44px; }
+.css-variable-table tbody th code { white-space: nowrap; }
+.css-variable-table td:nth-child(2) { width: 18%; }
+.css-variable-table td:last-child { width: 55%; }
+.css-theme-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 24px; align-items: start; }
+.css-theme-preview h3 { font-size: 14px; font-weight: 650; margin: 0 0 14px; }
+.css-theme-usage { border-top: 1px solid #dce3e9; }
+.roomy-tree .tree { --tree-background: #172b2b; --tree-foreground: #e3f3ed; --tree-border: #3d5855; --tree-accent: #79dcc5; --tree-muted: #a6bdb8; --tree-row-height: 32px; }
+@media (max-width: 760px) { .css-theme-grid { grid-template-columns: 1fr; } }
+.intro .intro-meta { margin-top: 18px; font-size: 12px; }
+.intro-meta strong { font-weight: 600; color: #26364a; }
+.intro-meta a { color: #137e70; text-decoration: none; }
+footer h2 { margin: 0 0 14px; color: #26364a; font-size: 18px; }
+footer p { max-width: 740px; margin: 10px 0; line-height: 1.8; }
+footer a { color: #137e70; }
+.license-download { display: inline-block; margin: 6px 0; text-decoration: none; }
+footer .footer-documentation { margin-top: 22px; }

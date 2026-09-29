@@ -1,0 +1,48 @@
+.tree {
+  --tree-border: #d4dce5;
+  --tree-background: #fff;
+  --tree-foreground: #26364a;
+  --tree-accent: #137e70;
+  --tree-muted: #68778b;
+  --tree-row-height: 24px;
+  box-sizing: border-box;
+  width: 100%; min-width: 0; overflow-y: auto;
+  border: 1px solid var(--tree-border); border-radius: 8px;
+  background: var(--tree-background); color: var(--tree-foreground);
+  padding: 10px; font: 14px/1.5 system-ui, sans-serif;
+}
+.tree *, .tree *::before, .tree *::after { box-sizing: border-box; }
+.tree-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.tree-search { min-width: 0; flex: 1; width: 100%; padding: 8px 10px; font: inherit; border: 1px solid var(--tree-border); border-radius: 5px; background: var(--tree-background); color: inherit; }
+.tree-global-toggle { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--tree-border); border-radius: 5px; background: var(--tree-background); color: inherit; cursor: pointer; }
+.tree-global-toggle svg { width: 20px; height: 20px; }
+.tree-list { margin: 0; padding: 0; list-style: none; }
+.tree-node-content > .tree-list-selectable { padding-left: 2px; }
+.tree-list[hidden] { display: none; }
+.tree-node { position: relative; display: flex; align-items: stretch; padding: 0; }
+.tree-node-clickable { cursor: pointer; }
+.tree-node-last { align-items: flex-start; }
+.tree-stem { width: 6px; flex-shrink: 0; border-right: 1px dotted var(--tree-border); }
+.tree-stem-first { margin-top: calc(var(--tree-row-height) / 2); }
+.tree-node-last > .tree-stem { border: 0; }
+.tree-connector { width: 10px; flex-shrink: 0; margin: calc(var(--tree-row-height) / 2 - .5px) 1px 0 0; border-top: 1px dotted var(--tree-border); }
+.tree-node-last > .tree-connector {
+  /* Match the preceding stem's right border without shifting the row content. */
+  width: 11px; height: calc(var(--tree-row-height) / 2 + .5px); margin-top: 0; margin-left: -1px;
+  border-top: 0; border-left: 1px dotted var(--tree-border); border-bottom: 1px dotted var(--tree-border);
+}
+.tree-branch-toggle { position: absolute; top: calc(var(--tree-row-height) / 2 - 5px); left: 1px; display: grid; place-items: center; width: 10px; height: 10px; padding: 0; border: 1px solid var(--tree-border); background: var(--tree-background); color: inherit; cursor: pointer; }
+.tree-branch-icon { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; }
+.tree-node-content { flex: 1; min-width: 0; }
+.tree-row { display: flex; align-items: flex-start; min-height: var(--tree-row-height); line-height: var(--tree-row-height); }
+.tree-choice { display: inline-flex; align-items: flex-start; gap: 8px; line-height: var(--tree-row-height); cursor: pointer; }
+.tree-choice:has(input:disabled) { cursor: default; opacity: .55; }
+.tree-selection { width: 15px; height: 15px; margin: calc((var(--tree-row-height) - 15px) / 2) 0; flex-shrink: 0; accent-color: var(--tree-accent); }
+.tree-no-option { padding-left: 17px; }
+.tree-muted { color: var(--tree-muted); }
+.tree-error { color: #b42318; }
+.tree button:disabled { cursor: default; opacity: .5; }
+.tree input:focus-visible, .tree button:focus-visible { outline: 2px solid var(--tree-accent); outline-offset: 3px; }
+.tree-loader { display: inline-block; flex-shrink: 0; width: 9px; height: 9px; margin: calc((var(--tree-row-height) - 9px) / 2) 5px; border: 2px solid var(--tree-border); border-top-color: var(--tree-accent); border-radius: 50%; animation: tree-spin 1s linear infinite; }
+@keyframes tree-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .tree-loader { animation: none; } }
