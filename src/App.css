@@ -1,6 +1,9 @@
 main { max-width: 1180px; padding: 0 32px; margin: 0 auto; }
-.page-header { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; border-bottom: 1px solid #dce3e9; font-size: 13px; }
+.page-header { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; background: #f7f9fb; border-bottom: 1px solid #dce3e9; font-size: 13px; }
+main [id] { scroll-margin-top: 120px; }
 .page-header a { text-decoration: none; }
+.github-link { display: inline-flex; align-items: center; gap: 7px; }
+.github-logo { width: 18px; height: 18px; flex-shrink: 0; }
 .brand { font-size: 21px; font-weight: 750; letter-spacing: -1px; }
 .brand span { font-size: 12px; font-weight: 400; letter-spacing: 0; color: #68778b; margin-left: 10px; }
 .intro { padding: 70px 0 58px; max-width: 700px; }
@@ -27,7 +30,7 @@ summary { cursor: pointer; font-size: 12px; padding: 14px 22px; color: #526378; 
 pre { margin: 0; padding: 18px 22px; background: #f3f6f8; overflow: auto; font: 12px/1.7 ui-monospace, monospace; }
 .custom-tree .tree { --tree-background: #172b2b; --tree-foreground: #e3f3ed; --tree-border: #3d5855; --tree-accent: #79dcc5; --tree-muted: #a6bdb8; }
 footer { padding: 35px 0; margin-top: 30px; color: #68778b; font-size: 12px; border-top: 1px solid #dce3e9; }
-@media (max-width: 760px) { main { padding: 0 18px; } .examples { grid-template-columns: 1fr; } .section-heading { display: block; } .intro { padding: 48px 0 36px; } .brand span { display: none; } }
+@media (max-width: 760px) { main { padding: 0 18px; } main [id] { scroll-margin-top: 180px; } .examples { grid-template-columns: 1fr; } .section-heading { display: block; } .intro { padding: 48px 0 36px; } .brand span { display: none; } }
 .page-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px; }
 .parameters { margin-bottom: 44px; }
 .parameter-table-scroll { overflow-x: auto; border: 1px solid #dce3e9; border-radius: 12px; background: #fff; }

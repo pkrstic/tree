@@ -2,6 +2,8 @@
 
 Version **1.0.0** · Author **Predrag Krstić**
 
+[Source code on GitHub](https://github.com/pkrstic/tree)
+
 A React + TypeScript component for browsing and selecting nodes in a hierarchy. Supports single and multiple selection, local search, native HTML forms, per-node disabling, and lazy loading over HTTP. Uses React and scoped CSS; no Tailwind, icon library, or application aliases are required.
 
 This repository includes the component and a runnable example gallery. The library build is configured, but it is **not published yet**. The final package name and npm account are still needed. Imports below use the local component entry point; use the package name for npm installations.
