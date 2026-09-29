@@ -4,7 +4,7 @@ Version **1.0.0** · Author **Predrag Krstić**
 
 A React + TypeScript component for browsing and selecting nodes in a hierarchy. Supports single and multiple selection, local search, native HTML forms, per-node disabling, and lazy loading over HTTP. Uses React and scoped CSS; no Tailwind, icon library, or application aliases are required.
 
-This repository includes the component and a runnable example gallery. It is currently a **private development project**, not a published npm package. Imports below use the local component entry point; replace them with your chosen package name after packaging.
+This repository includes the component and a runnable example gallery. The library build is configured, but it is **not published yet**. The final package name and npm account are still needed. Imports below use the local component entry point; use the package name for npm installations.
 
 ## Installation
 
@@ -32,9 +32,10 @@ Then use the package entry point in place of the local import:
 
 ```tsx
 import { Tree, type TreeNode } from '@your-scope/react-tree'
+import '@your-scope/react-tree/style.css'
 ```
 
-The library build and stylesheet export still need to be configured before this npm workflow works. The release documentation must include the final stylesheet import if the built package requires one. See [Preparing an npm release](#preparing-an-npm-release) for the remaining packaging steps.
+The built package requires the explicit stylesheet import above. It provides an ES module entry and TypeScript declarations, with React 19 as a peer dependency. React is not bundled. See [Preparing an npm release](#preparing-an-npm-release) for publishing steps.
 
 ## Run the examples
 
@@ -46,7 +47,8 @@ npm run dev
 Open the URL printed by Vite. Each example has an interactive preview and expandable code. Source: [`src/examples/TreeExamples.tsx`](src/examples/TreeExamples.tsx); shared data: [`src/examples/nodes.ts`](src/examples/nodes.ts).
 
 ```sh
-npm run build    # Type-check and build the gallery
+npm run build      # Build the library and TypeScript declarations
+npm run build:docs # Type-check and build the gallery
 npm run lint
 npm test        # Component behavior tests
 npm run preview # Serve the built gallery
@@ -385,19 +387,21 @@ This is a nested list, not an ARIA tree widget. It does not implement tree-speci
 
 ## Preparing an npm release
 
-The reusable entry point is [`src/tree/index.ts`](src/tree/index.ts), exporting `Tree`, `TreeProps`, `TreeNode`, `TreeNodeId`, `TreeSelectionProps`, and `TreeSelectionValue`. The current build produces the **example site**, not a distributable library.
+The reusable entry point is [`src/tree/index.ts`](src/tree/index.ts), exporting `Tree`, `TreeProps`, `TreeNode`, `TreeNodeId`, `TreeSelectionProps`, and `TreeSelectionValue`.
 
-Before publishing:
+`npm run build` creates `dist/index.js`, TypeScript declarations, and `dist/style.css`. Only `dist`, this README, `LICENSE`, and package metadata are included in the tarball. The example site has a separate `npm run build:docs` build in `dist-docs`.
 
-1. Choose an available package name, version, and repository metadata. Include the existing WTFPL `LICENSE` file in the release.
-2. Add a library build for the component entry point, with JavaScript, TypeScript declarations, and its CSS asset. Keep React external to the library bundle.
-3. Move React to `peerDependencies` for the library, retaining React and React DOM as development dependencies for the gallery. Declare only React versions you actually test.
-4. Configure `exports`, `types`, and `files` for the generated library output. Expose the stylesheet explicitly and mark CSS as a side effect so bundlers retain it.
-5. Update these local import examples to the final package name and document the built stylesheet import.
-6. Run the behavior tests, lint, library build, and `npm pack --dry-run`; install the generated tarball in a separate React app and verify imports, types, styles, and remote requests.
-7. Remove `private: true` only once the release metadata and package contents are ready.
+Before the first release:
 
-No npm release or registry operation is performed by this project’s current scripts.
+1. Create an npm account and sign in locally with `npm login`.
+2. Choose an available package name or a scope you own. The unscoped name `tree` is already registered; the current name is a development placeholder.
+3. Update the package and lockfile name, and replace `@your-scope/react-tree` in this README with the chosen name.
+4. Run `npm run lint`, `npm test`, `npm run build`, and `npm run build:docs`.
+5. Inspect `npm pack --dry-run`, then install an actual packed tarball in a separate React app to check exports, types, and the explicit stylesheet import.
+6. Remove `private: true` when the package name is finalized and the release is ready.
+7. Publish with `npm publish --access public`, completing any npm authentication prompts yourself.
+
+The `prepublishOnly` script runs lint, behavior tests, and the library build before a registry publication. Version **1.0.0**, author **Predrag Krstić**, and the WTFPL license are already configured.
 
 ## Author and license
 

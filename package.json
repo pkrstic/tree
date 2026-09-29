@@ -5,14 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json && node scripts/finalize-types.mjs",
     "lint": "oxlint",
-    "preview": "vite preview",
-    "test": "vitest run"
-  },
-  "dependencies": {
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "preview": "vite preview --outDir dist-docs",
+    "test": "vitest run",
+    "build:docs": "tsc -b && vite build --outDir dist-docs",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",
@@ -25,8 +23,46 @@
     "oxlint": "^1.81.0",
     "typescript": "~6.0.2",
     "vite": "^8.3.0",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "license": "WTFPL",
-  "author": "Predrag Krstić"
+  "author": "Predrag Krstić",
+  "description": "A React tree component with search, single and multiple selection, native forms, and lazy loading.",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "keywords": [
+    "react",
+    "tree",
+    "tree-view",
+    "typescript",
+    "checkbox",
+    "radio",
+    "hierarchy"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
